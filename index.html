@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>🎮 Tic Tac Toe</h1>
+
+<div class="mode">
+  <button onclick="startGame('pvp')">2 Player</button>
+  <button onclick="startGame('cpu')">Computer</button>
+</div>
+
+<h2 id="status">Choose a mode</h2>
+<div id="victoryBanner"></div>
+
+<div id="board" class="board"></div>
+
+<div class="scoreboard">
+  X: <span id="scoreX">0</span> |
+  O: <span id="scoreO">0</span>
+</div>
+
+<button class="reset" onclick="resetMatch()">Restart Match</button>
+
+<script src="script.js"></script>
+</body>
+</html>

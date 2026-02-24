@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  color: white;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 20px;
+  font-size: 40px;
+  letter-spacing: 2px;
+}
+
+.mode button {
+  padding: 16px 32px;
+  margin: 12px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #00f5ff, #00ff9d);
+  color: #002b36;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,255,200,0.4);
+  transition: 0.25s;
+}
+
+.mode button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,255,200,0.9);
+}
+
+.reset {
+  margin-top: 20px;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 40px;
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255,80,80,0.7);
+  transition: 0.3s;
+}
+
+.reset:hover {
+  transform: scale(1.1);
+}
+
+.board {
+  width: 320px;
+  margin: 25px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 46px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: 0.25s;
+  animation: pop 0.2s ease;
+}
+
+.cell:hover {
+  background: rgba(255,255,255,0.18);
+  transform: scale(1.08);
+}
+
+.cell.x { color: #00f5ff; }
+.cell.o { color: #ff4ecd; }
+
+.scoreboard {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+#status {
+  font-size: 22px;
+  margin-top: 10px;
+}
+
+@keyframes pop {
+  from { transform: scale(0.3); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Victory Banner */
+
+#victoryBanner {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  padding: 25px 60px;
+  font-size: 34px;
+  font-weight: bold;
+  border-radius: 20px;
+  color: #001f2f;
+  background: linear-gradient(45deg, #00f5ff, #00ff9d);
+  box-shadow: 0 0 25px rgba(0,255,200,0.8),
+              0 0 60px rgba(0,255,200,0.6);
+  opacity: 0;
+  transition: 0.4s ease;
+  z-index: 999;
+}
+
+#victoryBanner.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  animation: glowPulse 1.2s infinite;
+}
+
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 20px rgba(0,255,200,0.6); }
+  50% { box-shadow: 0 0 45px rgba(0,255,200,1); }
+  100% { box-shadow: 0 0 20px rgba(0,255,200,0.6); }
+}
